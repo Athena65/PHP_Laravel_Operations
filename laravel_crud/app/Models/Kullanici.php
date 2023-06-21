@@ -13,7 +13,7 @@ class Kullanici extends Model
     protected $fillable=['name','surname','email','address'];
     public function company()
     {
-        return $this->hasMany('App\Models\Company');
+        return $this->belongsTo(Company::class,'company_id','id' );
     }
     
 }

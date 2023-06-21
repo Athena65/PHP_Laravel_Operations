@@ -11,9 +11,5 @@ class Company extends Model
 {
     use HasFactory;
     protected $fillable=['name','email','address'];
-    public function users()
-    {
-      return $this->  belongsTo('App\Models\Kullanici','company_id');
-      
-    }
+
 }

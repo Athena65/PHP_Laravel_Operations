@@ -51,15 +51,9 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->address}}</td>
-                    <td>
-                    @foreach($companies as $company)
-                    @if($loop->index==($user->company_id)-1)
-                    {{$company->name}}
-                    @endif
-
-                    @endforeach
-                    </td>
+                    <td>{{$user->address}}</td> 
+                    <td>{{$user->company->name}}</td>
+                  
                     <td>
                         <form id="delete_edit"action="{{ route('users.destroy',$user->id)}}" method="Post">
                             <a class="btn btn-primary" href="{{ route('users.edit',$user->id)}}" >Edit</a>

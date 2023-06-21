@@ -11,9 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $companies=Company::all();
-        $users=Kullanici::orderBy('id','desc')->paginate(5);
-        return view('users.index',compact('users','companies'));
+        $users=Kullanici::with('company')->orderBy('id','desc')->paginate(5);
+        return view('users.index',compact('users'));
     }
     public function create()
     {
