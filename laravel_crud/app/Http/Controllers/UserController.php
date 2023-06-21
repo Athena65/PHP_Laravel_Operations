@@ -50,7 +50,8 @@ class UserController extends Controller
 
     public function edit(Kullanici $user)
     {
-        return view('users.edit',compact('user'));
+        $companies=Company::all();
+        return view('users.edit',compact('user','companies'));
     }
 
     public function update(Request $request,Kullanici $user)

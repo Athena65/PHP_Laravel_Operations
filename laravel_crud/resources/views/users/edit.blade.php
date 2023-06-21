@@ -67,12 +67,17 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                    <strong>User's Company:</strong>
-                        <input type="text" name="company" class="form-control" placeholder="User's Company">
-                        @error('company')
+                    <strong>Select Company</strong>
+                        @csrf
+                        <select name="company_id" id="company_id">
+                            @foreach($companies as $company)
+                            <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('company_id')
                         <div class="alert alert-danger mt-1 mb-1">{{$$message}}</div>
                         @enderror
-                    </div>
+                    </div>                 
                 </div>
                 <button type="submit" class="btn btn-primary ml-3">Update User</button>
             </div>
